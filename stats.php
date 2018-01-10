@@ -20,7 +20,7 @@ $id=$_GET['id'];
 //Check if everything is ok
 if(!empty($id)||ctype_digit($id)){
  //if ok, then procceed
-$q=mysql_query("SELECT * FROM topsite WHERE id='".$id."'");
+$q=mysql_query("SELECT * FROM `topsite` WHERE id='".$id."'");
 
 // first check if requested site is available or not via "id"
  if(mysql_num_rows($q)>0){
@@ -31,7 +31,7 @@ echo '<div style="border:2px solid black">';
  echo 'Total Clicks: '.$q2["clicks"].'<br>';
 echo '</div>';
  // Get all clicks
-$q2 = mysql_query("SELECT * FROM ips WHERE id='".$id."' DESC LIMIT ".$first_message.",".$last_message."");
+$q2 = mysql_query("SELECT * FROM `ips` WHERE id='".$id."' DESC LIMIT ".$first_message.",".$last_message."");
 //We get the current page
 $req1 = mysql_fetch_array(mysql_query('SELECT count(time) AS `nb` FROM `ips` WHERE id="'.$id.'"'));
 if(isset($_GET['page']))

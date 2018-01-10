@@ -9,18 +9,18 @@ include('config.php');
 
 //set variables
 $id=$_GET['id'];
-
+$url=$_GET['url'];
 // Get user IP for tracking
-$ip = $_SERVER['HTTP_X_FORWARDED_FOR';
+$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 $ip2 = $_SERVER['REMOTE_ADDR'];
 
 //Check if everything is ok
 if(!empty($id)||ctype_digit($id)){
  //if ok, then procceed
-$q=mysql_query("SELECT * FROM topsite WHERE id='".$id."'");
+$q=mysql_query("SELECT * FROM `topsite` WHERE id='".$id."'");
 
 // check if user have already Clicked for a site
-$qip = mysql_query("SELECT * FROM ips WHERE id='".$id."' AND ip='".$ip."' OR ip2='".$ip2."'");
+$qip = mysql_query("SELECT * FROM `ips` WHERE id='".$id."' AND ip='".$ip."' OR ip2='".$ip2."'");
 if (mysql_num_rows($qip)>0) {
 $ip_saved = 1;
 }
@@ -30,9 +30,9 @@ $ip_saved = 1;
  if(!isset($_COOKIE[$c1])&&$_COOKIE[$c1]!=$id&&!empty($ip_saved)){
  
  // if click set, then procceed
-mysql_query("UPDATE topsite SET clicks=clicks+1 WHERE id='".$id."'");
-echo '<meta http-equiv="refresh" content="0; url=go.php?id='.$id.'">';
-mysql_query("INSERT INTO ips (id, ip, ip2) VALUES ('".$id."','".$ip."','".$ip2."')");
+mysql_query("UPDATE `topsite` SET clicks=clicks+1 WHERE id='".$id."'");
+echo '<meta http-equiv="refresh" content="0; url=go.php?id='.$id.'."&url='.$url.'">';
+mysql_query("INSERT INTO `ips` (id, ip, ip2) VALUES ('".$id."','".$ip."','".$ip2."')");
  } else {
 
 // everything is okay, redirect user to redirect

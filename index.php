@@ -50,8 +50,8 @@ $req2 = mysql_query('SELECT * FROM `topsite` WHERE status="ok" ORDER BY `clicks`
 while($dnn2 = mysql_fetch_array($req2)) {
 $i++;
 echo "<div style=\"border:2px solid blue\">";
- echo $i;
- echo "<td class=\"site\"><a href=" . (dehtml($dnn2['url'])).">" . (dehtml($dnn2['name'])). "</a><br />";
+ echo $i.") ";
+ echo "<td class=\"site\"><a href=/click.php?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url'])).">" . (dehtml($dnn2['name'])). "</a><br />";
  echo (dehtml($dnn2['description'])). "<br /></div>";
 
 }

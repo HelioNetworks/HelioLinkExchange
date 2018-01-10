@@ -4,16 +4,18 @@
 */
 // Get/Set values
 $id=$_GET['id'];
+$url=$_GET['url'];
+
 $name="click".$id;
 $time=time()+60*60*24*365;
 // Set cookie
 $sc = setcookie($name,$id,$time);
 if ($sc){
 // if successful, then redirect
-echo '<meta http-equiv="refresh" content="0; url=index.php">
+echo '<meta http-equiv="refresh" content="0; url='.$url.'">
 </head>
 <body>
-Redirecting...
+Redirecting... (good)
 </body>
 </html>';
 } else {

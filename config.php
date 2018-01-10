@@ -15,7 +15,7 @@ mysql_select_db('bailey_heliolinkexchange');
 $mail_webmaster = 'bailey@bailey.guru';
 
 // URL
-$url = 'http://example.com/';
+$url = 'https://hlx.bailey.guru/';
 
 //Number of sites per page
 $nb_site_page = 10;
@@ -23,20 +23,17 @@ $nb_site_page = 10;
 //Send an email when accepting/rejecting a web site
 $mail = true;
 //Site name/title
-$sname = "AtoZ.ML";
+$sname = "Helio Link Exchange";
 //Base Site
-$surl = "http://atoz.ml";
+$surl = "https://hlx.bailey.guru";
 
 // Admin password for accepting or rejecting site
-$password = 1234;
+$password = "1234";
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="robots" content="index, follow,all"/>
-<meta name="language" content="en"/>
-<meta name="googlebot" content="index,follow,all"/>
-<meta name="audience" content="all"/>
+<meta name="language" content="en-gb"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="keywords" content="site,top,link,exchange,heliohost,helionet,atoz.ml,mrj,meraj"/>
 <meta name="description" content="<?=$dc?>"/>

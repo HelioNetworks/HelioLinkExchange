@@ -49,7 +49,7 @@ $i = $first_message ;
 $q1 = mysql_query("SELECT * FROM topsite WHERE status='no' DESC LIMIT ".$first_message.",".$last_message."");
 */
 // Get all sites are pending
-$q1 = mysql_query("SELECT * FROM topsite WHERE status='no'");
+$q1 = mysql_query("SELECT * FROM `topsite` WHERE status='no'");
 ?>
 <div style="border:2px solid grey;text-align:center">Inactive Sites</div>
 <?php
