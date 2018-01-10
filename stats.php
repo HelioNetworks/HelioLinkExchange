@@ -1,12 +1,13 @@
-<?
+<?php
 /*
 # This file shows site's statistics to owner
 */
 // set title and description for this page
 $title = "Site Statistics";
-$dc = "Statistics of your site in toplist at ".$sname;
 // include configuration file
-include("config.php");
+include('config.php');
+$dc = "Statistics of your site in toplist at ".$sname;
+
 
 // print out page headers
 echo '</head>
@@ -75,7 +76,12 @@ $i = $first_message ;
 while($cld = mysql_fetch_array($$q2)){
 $i++;
 echo $i;
-echo '\. Users IP: '.if (empty$cld["ip"]){ echo $cld["ip2"]; } else { echo $cld["ip"]; }.'<br>Time: '.date("g:I:a d/m/Y",$cld["time"]).';
+echo '\. Users IP: ';
+if (empty($cld["ip"])) {
+  echo $cld["ip2"]; 
+} else {
+  echo $cld["ip"]; }
+  '<br>Time: '.date("g:I:a d/m/Y",$cld["time"]);
 }
  } else {
  echo '<center>No statistics available</center>';
@@ -97,7 +103,7 @@ echo '<meta http-equiv="refresh" content="0; url=index.php">
 </html>';
 }
 ?>
-<?
+<?php
 // close MySQL connection
 mysql_close();
 ?>

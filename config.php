@@ -8,11 +8,11 @@
 error_reporting(E_ERROR | E_PARSE);
 
 // DataBase connection
-mysql_connect('localhost', 'mrj_test', 'PASSWORD');
-mysql_select_db('mrj_test');
+mysql_connect('tommy.heliohost.org', 'bailey_github-lx', '}f]5r[~PNVI4');
+mysql_select_db('bailey_heliolinkexchange');
 
 //Webmaster Email
-$mail_webmaster = 'merajbd7@gmail.com';
+$mail_webmaster = 'bailey@bailey.guru';
 
 // URL
 $url = 'http://example.com/';
@@ -49,3 +49,5 @@ $password = 1234;
 <link rel="icon" href="http://<?=$surl?>/favicon.ico" type="image/x-icon"/>
 <meta name="title" content="<?=$sname?> - <?=$title?>"/>
 <title><?=$sname?> - <?=$title?></title>
+</head>
+<body>
