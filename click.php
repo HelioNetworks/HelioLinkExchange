@@ -26,11 +26,11 @@ $ip_saved = 1;
 if(mysql_num_rows($q)>0) {
   $cid = $id;
  }
-if(!isset($_COOKIE["Clicked_ID".$cid]) && (isset($cid))) {
+if(!isset($_COOKIE["Clicked_ID".$cid]) && isset($cid)) {
 setcookie("Clicked_ID".$cid, "iD:".$id." ip:".$ip." / ".$ip2, time() + (86400 * 30), "/"); // 86400 = 1 day
 }
 // first check if requested site is available or not via "id"
- if(isset($_COOKIE["Clicked_ID".$cid]) && ($ip_saved != 1)){
+ if(isset($_COOKIE["Clicked_ID".$cid]) && ($ip_saved < 1)){
   echo "check cookie.<br /><br />";
  // if click set, then procceed
 mysql_query("UPDATE `topsite` SET clicks=clicks+1 WHERE id='".$id."'");
