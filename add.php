@@ -39,7 +39,7 @@ Thank you.";
 	// Add site to db
 	if(mysql_query("INSERT INTO `topsite` (id, name, url, clicks, description, banner, email, status) VALUES ('', '".$_POST['name']."', '".$_POST['url']."', 0, '".$_POST['description']."', '".$_POST['banner']."', '".$_POST['email']."', 'no')"))
 	{
-		echo '<div style="color:green"><strong>Your website has successfully been submited, an admin will check it soon. Will be notified by email.<br>Click here to go <a href="index.php">Home</a></strong></div>';
+		echo '<div style="color:green"><strong>Your website has successfully been submited, an admin will check it soon. Will be notified by email.<br>Click here to go <a href="/">Home</a></strong></div>';
 	send_email();
 	}
 	else

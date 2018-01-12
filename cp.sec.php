@@ -57,7 +57,7 @@ while ($inactive = mysql_fetch_array($q1)) {
 $i++;
 //echo $i;
 ?>
-<?=$inactive["url"]?> <a href="action.sec.php?ch=a&id=<?=$inactive["id"]?>">Accept</a><br>
+<?=$inactive["url"]?> <a href="action.sec?ch=a&id=<?=$inactive["id"]?>">Accept</a><br>
 <?php
 }
 // Show pagination
