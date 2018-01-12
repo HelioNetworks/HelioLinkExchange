@@ -5,19 +5,10 @@
 // Get/Set values
 $id=$_GET['id'];
 $url=$_GET['url'];
-
-$name="click".$id;
-$time=time()+60*60*24*365;
-// Set cookie
-$sc = setcookie($name,$id,$time);
-if ($sc){
+$cid=$_GET['cid'];
+if ($id == $cid) {
 // if successful, then redirect
-echo '<meta http-equiv="refresh" content="0; url='.$url.'">
-</head>
-<body>
-Redirecting... (good)
-</body>
-</html>';
+echo 'Redirecting... Your click <b>has</b> been saved.<script>window.location.replace("'.$url.'")</script>';
 } else {
 // if failed, then print
 echo 'Somehing is wrong!';
