@@ -15,51 +15,41 @@ $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 $ip2 = $_SERVER['REMOTE_ADDR'];
 
 //Check if everything is ok
-if(!empty($id)||ctype_digit($id)){
+if(!empty($id) || ctype_digit($id)){
  //if ok, then procceed
 $q=mysql_query("SELECT * FROM `topsite` WHERE id='".$id."'");
-
 // check if user have already Clicked for a site
 $qip = mysql_query("SELECT * FROM `ips` WHERE id='".$id."' AND ip='".$ip."' OR ip2='".$ip2."'");
 if (mysql_num_rows($qip)>0) {
 $ip_saved = 1;
 }
+if(mysql_num_rows($q)>0) {
+  $cid = $id;
+ }
+if(!isset($_COOKIE["Clicked_ID".$cid]) && (isset($cid))) {
+setcookie("Clicked_ID".$cid, "iD:".$id." ip:".$ip." / ".$ip2, time() + (86400 * 30), "/"); // 86400 = 1 day
+}
 // first check if requested site is available or not via "id"
- if(mysql_num_rows($q)>0){
- $c1 = "click".$id;
- if(!isset($_COOKIE[$c1])&&$_COOKIE[$c1]!=$id&&!empty($ip_saved)){
- 
+ if(isset($_COOKIE["Clicked_ID".$cid]) && (!isset($ip_saved))){
+  echo"check cookie.<br /><br />";
  // if click set, then procceed
 mysql_query("UPDATE `topsite` SET clicks=clicks+1 WHERE id='".$id."'");
-echo '<meta http-equiv="refresh" content="0; url=go.php?id='.$id.'."&url='.$url.'">';
 mysql_query("INSERT INTO `ips` (id, ip, ip2) VALUES ('".$id."','".$ip."','".$ip2."')");
+echo 'Redirecting... Your click <b>has</b> been saved.<script>window.location.replace("go.php?id='.$id.'&url='.$url.'&cid='.$cid.'")</script>';
  } else {
 
-// everything is okay, redirect user to redirect
-echo '<meta http-equiv="refresh" content="0; url=index.php">
-</head>
-<body>
-Redirecting...
-</body>
-</html>';
+// everything is okay, redirect user to website
+echo 'Redirecting... Your click hasn\'t been saved. <script>window.location.replace("go.php?id='.$id.'&url='.$url.'&cid='.$cid.'")</script>';
 }
-  } else {
+if(mysql_num_rows($q) == 0) {
 // site not found, show warning to user and returning to home
- echo '<meta http-equiv="refresh" content="0; url=index.php">
-</head>
-<body onload="javascript:alert(\'Sorry, the site you are looking for cannot be found. You are being redirected to home page.\');">
-Click <a here="index.php">here</a> if you are not redirected automatically.
-</body>
-</html>';
+ echo '<body onload="javascript:alert(\'Sorry, the site you are looking for cannot be found. You are being redirected to home page.\');">
+Click <a href="/">here</a> if you are not redirected automatically.';
  }
 } else {
 // if not, then show warning and redirect to home page
-echo '<meta http-equiv="refresh" content="0; url=index.php">
-</head>
-<body onload="javascript:alert(\'Sorry, something went wrong. You are being redirected to home page.\');">
-Click <a here="index.php">here</a> if you are not redirected automatically.
-</body>
-</html>';
+echo '<body onload="javascript:alert(\'Sorry, something went wrong. You are being redirected to home page.\');">
+Click <a href="/">here</a> if you are not redirected automatically.';
 }
 // Close MySQL connection
 mysql_close();
