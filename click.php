@@ -30,16 +30,20 @@ if(!isset($_COOKIE["Clicked_ID".$cid]) && (isset($cid))) {
 setcookie("Clicked_ID".$cid, "iD:".$id." ip:".$ip." / ".$ip2, time() + (86400 * 30), "/"); // 86400 = 1 day
 }
 // first check if requested site is available or not via "id"
- if(isset($_COOKIE["Clicked_ID".$cid]) && (!isset($ip_saved))){
-  echo"check cookie.<br /><br />";
+ if(isset($_COOKIE["Clicked_ID".$cid]) && ($ip_saved != 1)){
+  echo "check cookie.<br /><br />";
  // if click set, then procceed
 mysql_query("UPDATE `topsite` SET clicks=clicks+1 WHERE id='".$id."'");
 mysql_query("INSERT INTO `ips` (id, ip, ip2) VALUES ('".$id."','".$ip."','".$ip2."')");
-echo 'Redirecting... Your click <b>has</b> been saved.<script>window.location.replace("go.php?id='.$id.'&url='.$url.'&cid='.$cid.'")</script>';
+echo 'Redirecting... (1)';
+sleep(5);
+echo '<script>window.location.replace("/go/?id='.$id.'&url='.$url.'&cid='.$cid.'")</script>';
  } else {
 
 // everything is okay, redirect user to website
-echo 'Redirecting... Your click hasn\'t been saved. <script>window.location.replace("go.php?id='.$id.'&url='.$url.'&cid='.$cid.'")</script>';
+echo 'Redirecting... (0)';
+sleep(5);
+echo '<script>window.location.replace("/go/?id='.$id.'&url='.$url.'&cid='.$cid.'")</script>';
 }
 if(mysql_num_rows($q) == 0) {
 // site not found, show warning to user and returning to home
