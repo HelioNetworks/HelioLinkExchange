@@ -7,6 +7,12 @@ include('config.php');
 // set title and description for this page
 $title = "Site Toplist";
 $dc = "Free top list and link exchange at ".$sname;
+// print out page headers
+?>
+<h2 class=\"center\">Top Sites</h2>
+<a href="add">Add</a> - <a href="cp.sec">Admin</a>
+<br /><br />
+<?php
 // required function
 function dehtml($html) {
   return htmlentities($html, ENT_QUOTES, 'utf-8');
@@ -42,8 +48,7 @@ if($page < $nbpages) {
 $first_message = ($page-1)*$nb_site_page;
 $last_message = $first_message +$nb_site_page;
 $i = $first_message ;
-// print out page headers
-echo "<h2 class=\"center\">Top Sites</h2>";
+
 //fetch data from database
 $req2 = mysql_query('SELECT * FROM `topsite` WHERE status="ok" ORDER BY `clicks` DESC LIMIT '.$first_message .','.$last_message);
 //$req2 = mysql_fetch_object($req2);
@@ -51,8 +56,9 @@ while($dnn2 = mysql_fetch_array($req2)) {
 $i++;
 echo "<div style=\"border:2px solid blue\">";
  echo $i.") ";
- echo "<td class=\"site\"><a href=/click.php?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url'])).">" . (dehtml($dnn2['name'])). "</a><br />";
- echo (dehtml($dnn2['description'])). "<br /></div>";
+ echo "<td class=\"site\"><a href=/click/?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url'])).">" . (dehtml($dnn2['name'])). "</a> - <a href=/stats/?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url'])).">Stats</a><br />";
+ echo (dehtml($dnn2['description'])). "<br />";
+ echo "</div>";
 
 }
 //We display pages site (again)
