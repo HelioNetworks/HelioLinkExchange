@@ -11,7 +11,7 @@
         <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item <?php $current_file_name = basename($_SERVER['SCRIPT_NAME']); if ($current_file_name == "add.php") {echo "active";}?>">
-        <a class="nav-link" href="add/">Add You Website</a>
+        <a class="nav-link" href="/add/">Add You Website</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="https://heliohost.org">Go to HelioHost</a>
