@@ -8,7 +8,8 @@
 error_reporting(E_ERROR | E_PARSE);
 
 // DataBase connection
-mysql_connect('tommy.heliohost.org', 'bailey_github-lx', '}f]5r[~PNVI4');
+require('DataBase.php');
+mysql_connect("tommy.heliohost.org", "bailey_github-lx", $pass);
 mysql_select_db('bailey_heliolinkexchange');
 
 //Webmaster Email
