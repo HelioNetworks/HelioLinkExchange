@@ -49,22 +49,22 @@ $i = $first_message ;
 $q1 = mysql_query("SELECT * FROM topsite WHERE status='no' DESC LIMIT ".$first_message.",".$last_message."");
 */
 // Get all sites are pending
-$q1 = mysql_query("SELECT * FROM `topsite` WHERE status='no'");
+$q1 = mysql_query("SELECT * FROM topsite WHERE status='no'");
 ?>
 <div style="border:2px solid grey;text-align:center">Inactive Sites</div>
-<?php
+<?
 while ($inactive = mysql_fetch_array($q1)) {
 $i++;
 //echo $i;
 ?>
-<?=$inactive["url"]?> <a href="action.sec?ch=a&id=<?=$inactive["id"]?>">Accept</a><br>
-<?php
+<?=$inactive["url"]?> <a href="action.sec.php?ch=a&id=<?=$inactive["id"]?>">Accept</a><br>
+<?
 }
 // Show pagination
 ?>
 <div style="border:2px solid red">
 <?php echo $pages_site; ?></div>
-<?php
+<?
 // close MySQL connection
 mysql_close();
 ?>

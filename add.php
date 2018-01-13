@@ -1,14 +1,13 @@
-<?php
+<?
 /*
 # This file let users to add their website
 # Websites will not be added to list, they need to be accept/reject manually via admin
 */
 // set title and description for this page
-
 $title = "Add Site";
+$dc = "Add your site to link directory at ".$sname;
 // include configuration file
 include('config.php');
-$dc = "Add your site to link directory at ".$sname;
 // print out page headers
 echo '</head>
 <body>
@@ -24,8 +23,7 @@ if (isset($_POST['submitd'])){
 		$subject = 'Your website subscription at '.$sname;
 		$message = "Hi,
 You recieved this message after the subscription of your website (".$_POST['url'].") on our top site at '.$sname.'.
-
-Admin will review your site and let you know if your site is accepted or not. If your site is accepted, you will get further informations by an email.
+Admin will review your site and let you know if your site is accepted or not. If your site is accepted, you will get further informations by an email.
 
 Thank you.";
 		$to = $_POST['email'];
@@ -37,9 +35,9 @@ Thank you.";
 	 }
 	}
 	// Add site to db
-	if(mysql_query("INSERT INTO `topsite` (id, name, url, clicks, description, banner, email, status) VALUES ('', '".$_POST['name']."', '".$_POST['url']."', 0, '".$_POST['description']."', '".$_POST['banner']."', '".$_POST['email']."', 'no')"))
+	if(mysql_query("INSERT INTO topsite (id, name, url, clicks, description, banner, email, status) VALUES ('', '".$_POST['name']."', '".$_POST['url']."', 0, '".$_POST['description']."', '".$_POST['banner']."', '".$_POST['email']."', 'no')"))
 	{
-		echo '<div style="color:green"><strong>Your website has successfully been submited, an admin will check it soon. Will be notified by email.<br>Click here to go <a href="/">Home</a></strong></div>';
+		echo '<div style="color:green"><strong>Your website has successfully been submited, an admin will check it soon. Will be notified by email.<br>Click here to go <a href="index.php">Home</a></strong></div>';
 	send_email();
 	}
 	else
@@ -59,7 +57,7 @@ To add your website to this top site, you have to fill the following form:<br />
  <label for="email">Email</label><input type="text" name="email" id="email" /><br />
  <input type="submit" value="Submit" />
 </form>
-<?php
+<?
 }
 // close MySQL connection
 mysql_close();
