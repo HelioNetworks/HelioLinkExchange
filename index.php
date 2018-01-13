@@ -53,24 +53,30 @@ $i = $first_message ;
 //fetch data from database
 $req2 = mysql_query('SELECT * FROM `topsite` WHERE status="ok" ORDER BY `clicks` DESC LIMIT '.$first_message .','.$last_message);
 //$req2 = mysql_fetch_object($req2);
+echo "<div class=\"card-columns\">";
 while($dnn2 = mysql_fetch_array($req2)) {
 $i++;
-echo "<div class=\"row\">";
-echo "<div class=\"col-sm\">";
-echo "<div class=\"card text-white bg-dark mb-3\" style=\"max-width: 25rem;\">";
+echo "<div class=\"card text-white bg-dark mb-3\" style=\"\" >";
 echo "<div class=\"card-header\">".(dehtml($dnn2['name']))."</div>";
 echo "<div class=\"card-body\">";
 echo "<h4 class=\"card-title\">".(dehtml($dnn2['name']))."</h4>";
- echo (dehtml($dnn2['description'])). "<br />";
- echo "<br /><a href=/click/?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url']))." class=\" btn btn-secondary btn-sm\" role=\"button\">Visit " . (dehtml($dnn2['name'])). "</a>   <a href=/stats/?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url']))." class=\" btn btn-secondary btn-sm\" role=\"button\">Stats</a><br />";
+ echo "<div class=\"card-text\">".($dnn2['description']). "<br />";
+ echo "<br />
+ <a href=/click/?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url']))." class=\" btn btn-secondary btn-sm\" role=\"button\">Visit " . (dehtml($dnn2['name'])). "</a>   
+ <a href=/stats/?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url']))." class=\" btn btn-secondary btn-sm\" role=\"button\">Stats</a>
+ <br />";
  echo "</div>";
  echo"</div></div>";
 }
 //We display pages site (again)
 ?>
+</div>
+<br/>
+<br/>
 <div style="border:2px solid red">
 <?php echo $pages_site; ?>
 </div>
+
 <?php
 // close MySQL connection
 include('assets/include/footer.php');
