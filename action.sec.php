@@ -49,7 +49,7 @@ Regards,
 					mail($to,$subject,$message,$headers);
 				}
 				// We redirect to the main site
-				header('Location: '.$url);
+				header('Location: '.$surl);
 			}
 		}// If the admin reject the website
 		elseif($_GET['ch']=='r')
@@ -76,7 +76,7 @@ Thank you.";
 					mail($to,$subject,$message,$headers);
 				}
 				// We redirect user to the main site
-				header('Location: '.$url);
+				header('Location: '.$surl);
 			}
 		}// Otherwise, we delete the website from the DB
 		else
@@ -85,7 +85,7 @@ Thank you.";
 			if(mysql_query('delete from topsite where id="'.$id.'"'))
 			{
 				// We redirect to the ain site
-				header('Location: '.$url);
+				header('Location: '.$surl);
 			}
 		}
 	}
