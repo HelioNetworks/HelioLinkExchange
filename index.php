@@ -7,10 +7,11 @@ include('config.php');
 // set title and description for this page
 $title = "Site Toplist";
 $dc = "Free top list and link exchange at ".$sname;
+include('assets/include/header.php');
+include('assets/include/navbar.php');
 // print out page headers
 ?>
-<h2 class=\"center\">Top Sites</h2>
-<a href="add">Add</a> - <a href="https://Heliohost.org">Heliohost</a>
+<h1>Top Sites</h1>
 <br /><br />
 <?php
 // required function
@@ -54,19 +55,25 @@ $req2 = mysql_query('SELECT * FROM `topsite` WHERE status="ok" ORDER BY `clicks`
 //$req2 = mysql_fetch_object($req2);
 while($dnn2 = mysql_fetch_array($req2)) {
 $i++;
-echo "<div style=\"border:2px solid blue\">";
- echo $i.") ";
- echo "<td class=\"site\"><a href=/click/?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url'])).">" . (dehtml($dnn2['name'])). "</a> - <a href=/stats/?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url'])).">Stats</a><br />";
+echo "<div class=\"row\">";
+echo "<div class=\"col-sm\">";
+echo "<div class=\"card text-white bg-dark mb-3\" style=\"max-width: 25rem;\">";
+echo "<div class=\"card-header\">".(dehtml($dnn2['name']))."</div>";
+echo "<div class=\"card-body\">";
+echo "<h4 class=\"card-title\">".(dehtml($dnn2['name']))."</h4>";
  echo (dehtml($dnn2['description'])). "<br />";
+ echo "<br /><a href=/click/?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url']))." class=\" btn btn-secondary btn-sm\" role=\"button\">Visit " . (dehtml($dnn2['name'])). "</a>   <a href=/stats/?id=".(dehtml($dnn2['id']))."&url=".(dehtml($dnn2['url']))." class=\" btn btn-secondary btn-sm\" role=\"button\">Stats</a><br />";
  echo "</div>";
-
+ echo"</div></div>";
 }
 //We display pages site (again)
 ?>
 <div style="border:2px solid red">
-<?php echo $pages_site; ?></div>
+<?php echo $pages_site; ?>
 </div>
 <?php
 // close MySQL connection
+include('assets/include/footer.php');
 mysql_close();
 ?>
+</div>
