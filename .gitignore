@@ -2,7 +2,7 @@
 .vscode
 
 #Protected
-DataBase.php
+DataBase.secure
 
 # Windows image file caches
 Thumbs.db

@@ -8,7 +8,7 @@
 error_reporting(E_ERROR | E_PARSE);
 
 // DataBase connection
-require('DataBase.php');
+require('DataBase.secure');
 mysql_connect("tommy.heliohost.org", "bailey_github-lx", $pass);
 mysql_select_db('bailey_heliolinkexchange');
 
