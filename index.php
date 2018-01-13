@@ -10,7 +10,7 @@ $dc = "Free top list and link exchange at ".$sname;
 // print out page headers
 ?>
 <h2 class=\"center\">Top Sites</h2>
-<a href="add">Add</a> - <a href="cp.sec">Admin</a>
+<a href="add">Add</a> - <a href="https://Heliohost.org">Heliohost</a>
 <br /><br />
 <?php
 // required function
