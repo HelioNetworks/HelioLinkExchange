@@ -70,7 +70,6 @@ echo "<h4 class=\"card-title\">".(dehtml($dnn2['name']))."</h4>";
 }
 //We display pages site (again)
 ?>
-</div>
 <br/>
 <br/>
 <div style="border:2px solid red">
@@ -82,4 +81,3 @@ echo "<h4 class=\"card-title\">".(dehtml($dnn2['name']))."</h4>";
 include('assets/include/footer.php');
 mysql_close();
 ?>
-</div>
