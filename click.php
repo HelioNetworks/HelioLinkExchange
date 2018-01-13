@@ -25,12 +25,15 @@ $ip_saved = 1;
 }
 if(mysql_num_rows($q)>0) {
   $cid = $id;
+  echo "check id.<br /><br />";
  }
-if(!isset($_COOKIE["Clicked_ID".$cid]) && isset($cid)) {
-setcookie("Clicked_ID".$cid, "iD:".$id." ip:".$ip." / ".$ip2, time() + (86400 * 30), "/"); // 86400 = 1 day
+if(!isset($_COOKIE["Clicked_ID".$cid]) && (isset($cid))) {
+  echo "set cookie.<br /><br />";
+  setcookie("Clicked_ID".$cid, "iD:".$id." ip:".$ip." / ".$ip2, time() + (86400 * 30), "/"); // 86400 = 1 day
+  $set_true = 1; // So we know the cookie has been set
 }
-// first check if requested site is available or not via "id"
- if(isset($_COOKIE["Clicked_ID".$cid]) && ($ip_saved < 1)){
+// first check if requested site is available
+if(($set_true == 1) && ($ip_saved == 0)) { //set_true for quicker testing.
   echo "check cookie.<br /><br />";
  // if click set, then procceed
 mysql_query("UPDATE `topsite` SET clicks=clicks+1 WHERE id='".$id."'");
@@ -42,7 +45,7 @@ echo '<script>window.location.replace("/go/?id='.$id.'&url='.$url.'&cid='.$cid.'
 
 // everything is okay, redirect user to website
 echo 'Redirecting... (0)';
-sleep(5);
+sleep(20);
 echo '<script>window.location.replace("/go/?id='.$id.'&url='.$url.'&cid='.$cid.'")</script>';
 }
 if(mysql_num_rows($q) == 0) {
