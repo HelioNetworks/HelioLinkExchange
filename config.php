@@ -26,7 +26,7 @@ $mail = true;
 //Site name/title
 $sname = "Helio Link Exchange";
 //Base Site
-$surl = "https://hlx.bailey.guru";
+$surl = "/";
 
 // Admin password for accepting or rejecting site
 $password = "1234";
