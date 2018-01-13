@@ -10,9 +10,9 @@ $title = "Add Site";
 include('config.php');
 $dc = "Add your site to link directory at ".$sname;
 // print out page headers
-echo '</head>
-<body>
-<h2 class="center">Add Your Site</h2>';
+include('assets/include/header.php');
+include('assets/include/navbar.php');
+echo '<h2 class="center">Add Your Site</h2>';
 // if isset form
 if (isset($_POST['submitd'])){
 	// We get the futur ID of the Website
@@ -63,4 +63,5 @@ To add your website to this top site, you have to fill the following form:<br />
 }
 // close MySQL connection
 mysql_close();
+include('assets/include/footer.php');
 ?>

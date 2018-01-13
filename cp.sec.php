@@ -4,6 +4,8 @@
 */
 // include configuration file
 include('config.php');
+include('assets/include/header.php');
+include('assets/include/navbar.php');
 //We get the current page
 $req1 = mysql_fetch_array(mysql_query('SELECT count(id) AS `nb` FROM `topsite` WHERE status="no"'));
 if(isset($_GET['page']))
@@ -66,5 +68,6 @@ $i++;
 <?php echo $pages_site; ?></div>
 <?php
 // close MySQL connection
+include('assets/include/footer.php');
 mysql_close();
 ?>

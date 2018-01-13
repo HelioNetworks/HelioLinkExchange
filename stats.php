@@ -8,10 +8,10 @@ $title = "Site Statistics";
 include('config.php');
 $dc = "Statistics of your site in toplist at ".$sname;
 
-
+include('assets/include/header.php');
+include('assets/include/navbar.php');
 // print out page headers
-echo '</head>
-<body>
+echo '
 <h2 class="center">Site Stats</h2>';
 
 //set variables
@@ -88,22 +88,13 @@ if (empty($cld["ip"])) {
  }
   } else {
 // site not found, show warning to user and returning to home
- echo '<meta http-equiv="refresh" content="0; url=index.php">
-</head>
-<body onload="javascript:alert(\'Sorry, the site you are looking for cannot be found. You are being redirected to home page.\');">
-</body>
-</html>';
+ echo '';
  }
 } else {
 // if not, then show warning and redirect to home page
-echo '<meta http-equiv="refresh" content="0; url=index.php">
-</head>
-<body onload="javascript:alert(\'Sorry, something went wrong. You are being redirected to home page.\');">
-</body>
-</html>';
+echo '';
 }
-?>
-<?php
 // close MySQL connection
+include('assets/include/footer.php');
 mysql_close();
 ?>
