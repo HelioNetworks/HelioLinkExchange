@@ -39,12 +39,12 @@ Thank you.";
 	// Add site to db
 	if(mysql_query("INSERT INTO `topsite` (id, name, url, clicks, description, banner, email, status) VALUES ('', '".$_POST['name']."', '".$_POST['url']."', 0, '".$_POST['description']."', '".$_POST['banner']."', '".$_POST['email']."', 'no')"))
 	{
-		echo '<div style="color:green"><strong>Your website has successfully been submited, an admin will check it soon. Will be notified by email.<br>Click here to go <a href="/">Home</a></strong></div>';
+		echo '<div class="text-success"><strong>Your website has successfully been submited, an admin will check it soon. You will be notified by email.<br>Go <a class="text-success" href="/">Home</a></strong></div>';
 	send_email();
 	}
 	else
 	{
-		echo '<div style="color:red"><strong>An error occurred while submitting the website. Please try again or go to <a href="index.php">Home</a></strong></div>';
+		echo '<div style="color:red"><strong>An error occurred while submitting the website. Please try again or go to <a href="/">Home</a></strong></div>';
 	}
 // We  Show the form
 } else {
@@ -54,9 +54,9 @@ To add your website to this top site, you have to fill the following form:<br />
  <input type="hidden" name="submitd" value="true" />
  <label for="name">Website Name</label><input type="text" name="name" id="name" maxlength="55" /><br />
  <label for="url">URL</label><input type="text" name="url" id="url" /><br />
- <label for="description">Description</label><input type="text" name="description" id="description" maxlength="255" /><br />
+ <label for="description">Description</label><input type="text" name="description" id="description" maxlength="500" /><br />
  <label for="banner">Banner</label><input type="text" name="banner" id="banner" /><br />
- <label for="email">Email</label><input type="text" name="email" id="email" /><br />
+ <label for="email">Email</label><input type="email" name="email" id="email" /><br />
  <input type="submit" value="Submit" />
 </form>
 <?php
