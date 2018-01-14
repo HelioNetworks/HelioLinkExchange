@@ -7,14 +7,15 @@
               <li class="float-lg-right"><a href="#top">Back to top</a></li>
               <li><a href="https://heliohost.org">HelioHost</a></li>
               <li><a href="https://helionet.org">HelioNet</a></li>
-              <li><a href="https://github.com/HelioNetworks/HelioLinkExchange">HelioNetworks</a></li>
-              <li><a href="https://github.com/HelioNetworks/HelioLinkExchange">Github</a></li>
+              <li><a href="https://github.com/HelioNetworks/">HelioNetworks</a></li>
+              <li><a href="https://github.com/HelioNetworks/HelioLinkExchange">Github Repo</a></li>
               <li><a href="https://www.heliohost.org/donate/">Donate</a></li>
             </ul>
             <p>Made by <a href="https://www.helionet.org/index/user/123463-bailey/">Bailey Matthews</a>, <a href="https://www.helionet.org/index/user/96985-miwilc/">Michael Wilcox</a> and <a href="https://github.com/HelioNetworks/HelioLinkExchange/graphs/contributors">others</a>.</p>
             <p>Code released under the <a href="https://github.com/HelioNetworks/HelioLinkExchange/blob/master/LICENSE">
 GNU Affero General Public License v3.0</a>.</p>
-            <p>Based on <a href="https://github.com/HelioNetworks/HelioLinkExchange/tree/original">the original work</a> by <a href="https://www.helionet.org/index/user/118243-mrj/">mrj</a>. Icons from <a href="http://fontawesome.io/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="https://fonts.google.com/" rel="nofollow">Google</a>.</p>
+            <p>Based on <a href="https://github.com/HelioNetworks/HelioLinkExchange/tree/original">the original work</a> proposed by <a href="https://www.helionet.org/index/user/118243-mrj/">mrj</a> on <a href="https://www.helionet.org/index/topic/30956-traffic-exchange/">this topic</a>.</p>
+            <p>Theme by <a href="https://bootswatch.com" rel="nofollow">Bootswatch</a>. Web fonts from <a href="https://fonts.google.com/" rel="nofollow">Google</a>.</p>
 
           </div>
         </div>
