@@ -9,3 +9,6 @@ plugins:
     config:
       file_extensions: 
         - php
+
+  csslint:
+    enabled: true
