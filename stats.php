@@ -7,30 +7,26 @@ $title = "Site Statistics";
 // include configuration file
 include('config.php');
 $dc = "Statistics of your site in toplist at ".$sname;
-
 include('assets/include/header.php');
 include('assets/include/navbar.php');
 // print out page headers
 echo '
 <h2 class="center">Site Stats</h2>';
-
 //set variables
 $id=$_GET['id'];
-
 //Check if everything is ok
 if(!empty($id)||ctype_digit($id)){
- //if ok, then procceed
+//if ok, then procceed
 $q=mysql_query("SELECT * FROM `topsite` WHERE id='".$id."'");
-
 // first check if requested site is available or not via "id"
- if(mysql_num_rows($q)>0){
- $q2 = mysql_fetch_array($q);
- if (!empty($q2)){
+if(mysql_num_rows($q)>0){
+$q2 = mysql_fetch_array($q);
+if (!empty($q2)){
 // print clicks
 echo '<div style="border:2px solid black">';
- echo 'Total Clicks: '.$q2["clicks"].'<br>';
+    echo 'Total Clicks: '.$q2["clicks"].'<br>';
 echo '</div>';
- // Get all clicks
+// Get all clicks
 $q2 = mysql_query("SELECT * FROM `ips` WHERE id='".$id."' DESC LIMIT ".$first_message.",".$last_message."");
 //We get the current page
 $req1 = mysql_fetch_array(mysql_query('SELECT count(time) AS `nb` FROM `ips` WHERE id="'.$id.'"'));
@@ -78,18 +74,18 @@ $i++;
 echo $i;
 echo '\. Users IP: ';
 if (empty($cld["ip"])) {
-  echo $cld["ip2"]; 
+echo $cld["ip2"];
 } else {
-  echo $cld["ip"]; }
-  '<br>Time: '.date("g:I:a d/m/Y",$cld["time"]);
+echo $cld["ip"]; }
+'<br>Time: '.date("g:I:a d/m/Y",$cld["time"]);
 }
- } else {
- echo '<center>No statistics available</center>';
- }
-  } else {
+} else {
+echo '<center>No statistics available</center>';
+}
+} else {
 // site not found, show warning to user and returning to home
- echo '';
- }
+echo '';
+}
 } else {
 // if not, then show warning and redirect to home page
 echo '';
