@@ -1,6 +1,6 @@
 </div>
 <footer id="footer">
-<hr/>
+    <hr/>
     <div class="row">
         <div class="col-lg-12">
         <ul class="list-unstyled">
