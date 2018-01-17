@@ -23,9 +23,16 @@ if(mysql_num_rows($q)>0){
 $q2 = mysql_fetch_array($q);
 if (!empty($q2)){
 // print clicks
-echo '<div style="border:2px solid black">';
-    echo 'Total Clicks: '.$q2["clicks"].'<br>';
-echo '</div>';
+echo "<div class=\"card text-white bg-dark mb-3\" style=\"\" >";
+  echo "<div class=\"card-header\">Total Clicks</div>";
+  echo "<div class=\"card-body\">";
+    echo "<h4 class=\"card-title\">".$q2["clicks"]."</h4>";
+    echo "<div class=\"card-text\">Note: This may not be 100% accurate!<br />";
+      echo "<br />
+      <a href="/" class=\" btn btn-secondary btn-sm\" role=\"button\">Back Home</a>
+      <br />";
+    echo "</div>";
+  echo"</div></div>";
 // Get all clicks
 $q2 = mysql_query("SELECT * FROM `ips` WHERE id='".$id."' DESC LIMIT ".$first_message.",".$last_message."");
 //We get the current page
