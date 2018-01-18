@@ -33,6 +33,7 @@ echo "<div class=\"card text-white bg-dark mb-3\" style=\"\" >";
       <br />";
     echo "</div>";
   echo"</div></div>";
+  
 // Get all clicks
 $q2 = mysql_query("SELECT * FROM `ips` WHERE id='".$id."' DESC LIMIT ".$first_message.",".$last_message."");
 //We get the current page
