@@ -11,7 +11,9 @@ $dc = "Add your site to link directory at ".$sname;
 // print out page headers
 include('assets/include/header.php');
 include('assets/include/navbar.php');
-echo '<h2 class="center">Add Your Site</h2>';
+?>
+<h2>Add Your Site</h2>
+<?php
 // if isset form
 if (isset($_POST['submitd'])){
 	// We get the futur ID of the Website
@@ -55,8 +57,9 @@ To add your website to this top site, you have to fill the following form:<br />
 	<label for="banner">Banner: </label><input type="text" name="banner" id="banner" /><br />
 	<label for="email">Email: </label><input type="email" name="email" id="email" /><br />
 	<input type="submit" value="Submit" />
-	<p><pre>By using this service, you agree to abide by heliohost's rules and ToS</pre></p>
 </form>
+<br/>
+<p>By using this service, you agree to abide by Heliohost's <a href="#">rules and ToS</a>.</p>
 <?php
 }
 // close MySQL connection
