@@ -5,5 +5,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/28aac890ca6d2a088242/maintainability)](https://codeclimate.com/github/HelioNetworks/HelioLinkExchange/maintainability)
 
 
-This will soon be re-written in Go, then hopfully actually used. :smile:
+This will soon be re-written in Go, then hopfully actually used. :smile:\
 ETA: April 2019
